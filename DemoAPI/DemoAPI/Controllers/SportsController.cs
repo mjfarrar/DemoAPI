@@ -4,65 +4,103 @@ using System.Web.Http;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Http;
+using DemoAPI.Services;
 
 namespace DemoAPI.Controllers
 {
+    [RoutePrefix("api/sports")]
     public class SportsController : ApiController
     {
+        private SportsRepository sportRepo;
+        private TeamsRepository teamRepo;
+        private PlayersRepository playerRepo;
+
+        public SportsController() 
+        {
+            sportRepo = new SportsRepository();
+            teamRepo = new TeamsRepository();
+            playerRepo = new PlayersRepository();
+        }
+
         [HttpGet]
-        [Route("GetSports")]
+        [Route("GetAllSports")]
         public IHttpActionResult GetAllSports() 
         {
-            SportInfo sportOne = new SportInfo() 
-            { 
-                SportName = "Football"
-            };
-
-            List<SportInfo> sports = new List<SportInfo>();
-            sports.Add(sportOne);
+            var sports = this.sportRepo.GetAllSports();
 
             return Ok(sports);
         }
 
         [HttpGet]
-        public IHttpActionResult GetAllTeams() 
+        [Route("GetSport")]
+        public IHttpActionResult GetSport([FromUri]string sportName)
         {
-            TeamInfo teamOne = new TeamInfo()
-            {
-                TeamName = "Team One",
-                TeamSport = new SportInfo() 
-                {
-                    SportName = "Football"
-                }
-            }; 
-            
-            TeamInfo teamTwo = new TeamInfo()
-            {
-                TeamName = "Team Two",
-                TeamSport = new SportInfo()
-                {
-                    SportName = "Football"
-                }
-            };
+            var sports = this.sportRepo.GetSport(sportName);
 
-            List<TeamInfo> teams = new List<TeamInfo>();
-            teams.Add(teamOne);
-            teams.Add(teamTwo);
+            return Ok(sports);
+        }
+
+        [HttpPost]
+        [Route("AddSport")]
+        public IHttpActionResult AddSport([FromUri]string sportName)
+        {
+            var success = this.sportRepo.AddSport(sportName);
+
+            return Ok(success);
+        }
+
+        [HttpGet]
+        [Route("GetAllTeams")]
+        public IHttpActionResult GetAllSportTeams()
+        {
+            var teams = this.teamRepo.GetAllTeams();
 
             return Ok(teams);
         }
 
         [HttpGet]
-        public IHttpActionResult GetPlayersByTeam(string sportName)
+        [Route("GetTeam")]
+        public IHttpActionResult GetTeam([FromUri]string teamName)
         {
-            return null;
+            var team = this.teamRepo.GetTeam(teamName);
+
+            return Ok(team);
+        }
+
+        [HttpPost]
+        [Route("AddTeam")]
+        public IHttpActionResult AddTeam(TeamInfo teamInfo)
+        {
+            var success = this.teamRepo.AddTeam(teamInfo);
+
+            return Ok(success);
         }
 
         [HttpGet]
-        public IHttpActionResult GetPlayer(string playerName) 
+        [Route("GetAllPlayers")]
+        public IHttpActionResult GetAllPlayers()
         {
-            return null;
+            var teams = this.playerRepo.GetAllPlayers();
+
+            return Ok(teams);
+        }
+
+        [HttpGet]
+        [Route("GetPlayer")]
+        public IHttpActionResult GetPlayer([FromUri]string playerName)
+        {
+            var team = this.playerRepo.GetPlayer(playerName);
+
+            return Ok(team);
+        }
+
+        [HttpPost]
+        [Route("AddPlayer")]
+        public IHttpActionResult AddTeam(PlayerInfo playerInfo)
+        {
+            var success = this.playerRepo.AddPlayer(playerInfo);
+
+            return Ok(success);
         }
     }
 }
