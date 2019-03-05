@@ -58,6 +58,8 @@ C:\Users\Michael\Source\Repos\DemoAPI\DemoAPI\DemoAPI\bin\Microsoft.Owin.Securit
 C:\Users\Michael\Source\Repos\DemoAPI\DemoAPI\DemoAPI\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Michael\Source\Repos\DemoAPI\DemoAPI\DemoAPI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Michael\Source\Repos\DemoAPI\DemoAPI\DemoAPI\bin\System.Web.Http.Owin.xml
-C:\Users\Michael\Source\Repos\DemoAPI\DemoAPI\DemoAPI\obj\Debug\DemoAPI.csprojResolveAssemblyReference.cache
 C:\Users\Michael\Source\Repos\DemoAPI\DemoAPI\DemoAPI\obj\Debug\DemoAPI.dll
 C:\Users\Michael\Source\Repos\DemoAPI\DemoAPI\DemoAPI\obj\Debug\DemoAPI.pdb
+C:\Users\Michael\Source\Repos\DemoAPI\DemoAPI\DemoAPI\obj\Debug\DemoAPI.csprojAssemblyReference.cache
+C:\Users\Michael\Source\Repos\DemoAPI\DemoAPI\DemoAPI\obj\Debug\DemoAPI.csproj.CoreCompileInputs.cache
+C:\Users\Michael\Source\Repos\DemoAPI\DemoAPI\DemoAPI\obj\Debug\DemoAPI.csproj.CopyComplete
